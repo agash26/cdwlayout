@@ -16,11 +16,11 @@ export default function TeamCard({ team }) {
             },
         }}>
             <Avatar src={team.img} alt="user img" sx={{ width: 60, height: 60, ml: 1 }} />
-            <CardContent sx={{ flexGrow: 1, flexBasis: 'auto', flexWrap: 'wrap' }}>
-                <Typography variant="h6" fontWeight="bold" style={{ color: '#3c3838', marginBottom: 1 }}>
+            <CardContent sx={{ flexGrow: 1, flexBasis: 'auto', flexWrap: 'wrap', minWidth: 0  }}>
+                <Typography variant="h6" fontWeight="bold" style={{ color: '#3c3838', marginBottom: 1, overflowWrap: 'anywhere' }}>
                     {`${team.first_name} ${team.last_name}`}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" sx={{ minWidth: 0, overflowWrap: 'anywhere' }}>
                     {team.email}
                 </Typography>
             </CardContent>

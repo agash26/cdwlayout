@@ -7,6 +7,8 @@ import DataContext from '../context/DataContext';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
+import { IconButton } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -16,9 +18,10 @@ const Search = styled('div')(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
-  width: '100%',
+  width: '300px',
+  marginLeft: theme.spacing(2),
+  marginrRight: theme.spacing(2),
   [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
     width: 'auto',
   },
 }));
@@ -36,6 +39,8 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   width: '100%',
+  position: 'relative',
+  paddingRight: theme.spacing(6),
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -48,6 +53,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       },
     },
   },
+}));
+
+const ClearButton = styled(IconButton)(({ theme }) => ({
+  position: 'absolute',
+  right: theme.spacing(1),
+  top: '50%',
+  transform: 'translateY(-50%)',
 }));
 
 export default function SearchAppBar() {
@@ -74,6 +86,15 @@ export default function SearchAppBar() {
               onChange={(e) => setSearch(e.target.value)}
               value={search}
             />
+            {search && (
+              <ClearButton
+                edge="end"
+                aria-label="clear"
+                onClick={(()=>setSearch(''))}
+              >
+                <ClearIcon />
+              </ClearButton>
+            )}
           </Search>
         </Toolbar>
       </AppBar>
