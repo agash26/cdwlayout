@@ -65,7 +65,7 @@ export default function SearchAppBar() {
   const { title, setSearch, search } = useContext(DataContext);
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ bgcolor: '#8382f1'}}>
         <Toolbar>
           <Typography
             variant="h4"
